@@ -4,9 +4,8 @@ const formateData = (formateOptions, data) => {
     if(formateOptions){
         const output = data.map(eachRow => {
             let dateObj = new Date(eachRow[formateOptions.columnName]);
-            return { ...eachRow, [formateOptions.columnName] : moment(dateObj).format('MMM d, YYYY')}
+            return { ...eachRow, [formateOptions.columnName] : moment(dateObj).format(formateOptions.formate)}
         });
-        console.log("output", output);
         return output;
     }
     else {
@@ -31,10 +30,27 @@ const filterData = (filterOptions, data) => {
 }
 
 const mergeColumns = (mergeOptions, data) => {
+    if(mergeOptions){
+        let updatedRows = data.map((eachRow) => {
+            let stringInterpolValues = [];
+            mergeOptions.mergeColumns.forEach(eachColumnName => {
+                stringInterpolValues.push(eachRow[eachColumnName]);
+            });
+            return { ...eachRow, [mergeOptions.newColumnName] : (`${mergeOptions.formate}`, stringInterpolValues.join(",")) }
+        });
+        return updatedRows;
+    } else {
+        console.log("Merge options is not provided");
+    }
+}
+
+const createFormulaFieldColumn = (formulaFieldOptions, data) => {
 
 }
 
 module.exports = {
     formateData,
-    filterData
+    filterData,
+    mergeColumns,
+    createFormulaFieldColumn
 }

@@ -16,6 +16,8 @@ const readFile = async (path, isJSON) => {
 };
 
 const writeOutput =async (outputJson, outputPath) => {
+
+    console.log("output json in write method",outputJson);
   // Write JSON array to a file
   // convert JSON array to CSV string
   try {

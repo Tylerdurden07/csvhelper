@@ -2,7 +2,8 @@ const OPERATIONS = {
     FORMATTER: 'formatter',
     FILTER: 'filter',
     AGGREGATOR: 'aggregator',
-    MERGE: 'MERGE'
+    MERGE: 'merge',
+    FORMULA: 'formulaField'
 }
 
 

@@ -1,13 +1,12 @@
 {
-    "operation" : "filter",
-    "predicateOptions" : [{
-        "columnName": "age",
-        "value": "50",
-        "operator": ">"
-        
-    }],
+    "operation" : "merge",
+    "predicateOptions" : [],
     "formateOptions" : {
         "columnName" : "",
         "formate": ""
+    },
+    "mergeOptions": {
+        "newColumnName": "name",
+        "mergeColumns": ["first_name","last_name"]
     }
 }
