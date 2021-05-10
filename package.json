@@ -1,0 +1,23 @@
+{
+  "name": "csvhelper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "csvhelper": "./bin/index.js"
+  },
+  "dependencies": {
+    "create-file": "^1.0.1",
+    "csv-parser": "^3.0.0",
+    "csvtojson": "^2.0.10",
+    "json-2-csv": "^3.11.0",
+    "moment": "^2.29.1",
+    "yargs": "^17.0.1"
+  }
+}

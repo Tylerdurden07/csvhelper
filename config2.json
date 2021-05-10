@@ -1,0 +1,13 @@
+{
+    "operation" : "filter",
+    "predicateOptions" : [{
+        "columnName": "age",
+        "value": "50",
+        "operator": ">"
+        
+    }],
+    "formateOptions" : {
+        "columnName" : "",
+        "formate": ""
+    }
+}
