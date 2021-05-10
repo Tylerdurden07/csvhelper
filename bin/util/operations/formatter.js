@@ -45,7 +45,18 @@ const mergeColumns = (mergeOptions, data) => {
 }
 
 const createFormulaFieldColumn = (formulaFieldOptions, data) => {
-
+    if(formulaFieldOptions){
+        let updatedRows = data.map((eachRow) => {
+            let dynamicCondition = `${eachRow[formulaFieldOptions.predicate.field]} ${formulaFieldOptions.predicate.operator} ${formulaFieldOptions.predicate.value}`;
+            let evaluate = (condition) => Function(`return ${condition}`)();
+             
+            let newFormulaColumn = { [formulaFieldOptions.columnName] : evaluate(dynamicCondition) ? formulaFieldOptions.predicate.truthyValue : formulaFieldOptions.predicate.falsyValue };
+            return {...eachRow, ...newFormulaColumn};
+        });
+        return updatedRows;
+    } else {
+        console.log("No formulae field options are provided");
+    }
 }
 
 module.exports = {

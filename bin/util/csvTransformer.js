@@ -27,7 +27,7 @@ const transform = async (source, config, output) => {
                 outputData = mergeColumns(configData.mergeOptions, sourceData);
                 console.log("got output data!", JSON.stringify(outputData));
             } else if(configData.operation === OPERATIONS.FORMULA) {
-                outputData = createFormulaFieldColumn(configData.mergeOptions, sourceData);
+                outputData = createFormulaFieldColumn(configData.formulaFieldOptions, sourceData);
                 console.log("got output data!", JSON.stringify(outputData));
             }
         }
