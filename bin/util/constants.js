@@ -6,7 +6,6 @@ const OPERATIONS = {
     FORMULA: 'formulaField'
 }
 
-
 module.exports = {
     OPERATIONS
 }

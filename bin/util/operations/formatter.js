@@ -2,9 +2,10 @@ const moment = require('moment');
 
 const formateData = (formateOptions, data) => {
     if(formateOptions){
+        const {columnName, formate} = formateOptions;
         const output = data.map(eachRow => {
-            let dateObj = new Date(eachRow[formateOptions.columnName]);
-            return { ...eachRow, [formateOptions.columnName] : moment(dateObj).format(formateOptions.formate)}
+            let dateObj = new Date(eachRow[columnName]);
+            return { ...eachRow, [columnName] : moment(dateObj).format(formate)}
         });
         return output;
     }
@@ -31,12 +32,14 @@ const filterData = (filterOptions, data) => {
 
 const mergeColumns = (mergeOptions, data) => {
     if(mergeOptions){
+        const {newColumnName, formate, mergeColumns} = mergeOptions;
+
         let updatedRows = data.map((eachRow) => {
             let stringInterpolValues = [];
-            mergeOptions.mergeColumns.forEach(eachColumnName => {
+            mergeColumns.forEach(eachColumnName => {
                 stringInterpolValues.push(eachRow[eachColumnName]);
             });
-            return { ...eachRow, [mergeOptions.newColumnName] : (`${mergeOptions.formate}`, stringInterpolValues.join(",")) }
+            return { ...eachRow, [newColumnName] : (`${formate}`, stringInterpolValues.join(",")) }
         });
         return updatedRows;
     } else {
@@ -47,10 +50,11 @@ const mergeColumns = (mergeOptions, data) => {
 const createFormulaFieldColumn = (formulaFieldOptions, data) => {
     if(formulaFieldOptions){
         let updatedRows = data.map((eachRow) => {
-            let dynamicCondition = `${eachRow[formulaFieldOptions.predicate.field]} ${formulaFieldOptions.predicate.operator} ${formulaFieldOptions.predicate.value}`;
+            const { field, operator, value, truthyValue, falsyValue} = formulaFieldOptions.predicate
+            let dynamicCondition = `${eachRow[field]} ${operator} ${value}`;
             let evaluate = (condition) => Function(`return ${condition}`)();
              
-            let newFormulaColumn = { [formulaFieldOptions.columnName] : evaluate(dynamicCondition) ? formulaFieldOptions.predicate.truthyValue : formulaFieldOptions.predicate.falsyValue };
+            let newFormulaColumn = { [formulaFieldOptions.columnName] : evaluate(dynamicCondition) ? truthyValue : falsyValue };
             return {...eachRow, ...newFormulaColumn};
         });
         return updatedRows;

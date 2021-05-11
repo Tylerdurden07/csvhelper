@@ -10,8 +10,10 @@ const options = yargs
  .option("o", { alias: "output", describe: "Path to your output file", type: "string", demandOption: true })
  .argv;
 
-transform(options.source, options.config, options.output).then(() => {
-    console.log("reached");
-})
+transform(options.source, options.config, options.output,
+    () => { console.log("Completed Conversion!");}).
+    then(() => {
+    console.log("happy hacking!!");
+});
 
 

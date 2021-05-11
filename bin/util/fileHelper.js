@@ -15,21 +15,9 @@ const readFile = async (path, isJSON) => {
   return data;
 };
 
-const writeOutput =async (outputJson, outputPath) => {
-
-    console.log("output json in write method",outputJson);
-  // Write JSON array to a file
-  // convert JSON array to CSV string
+const writeOutput =async (outputJson, outputPath, cb) => {
   try {
     const csv = await jsonToCsv.json2csvAsync(outputJson, {output:outputPath});
-
-    // print CSV string
-    console.log(csv);
-
-    // write CSV to a file
-    //fs.writeFileSync(outputPath, csv, { flag: 'wx' });
-    //console.log("dirname", process.cwd()); /Users/gnanasekar/Desktop
-    //console.log("outputpath given", outputPath);
     if(fs.existsSync(outputPath)) {
         fs.unlinkSync(outputPath);
     }
@@ -37,6 +25,8 @@ const writeOutput =async (outputJson, outputPath) => {
         if(err){
             console.log(err);
         }
+        console.log(`Data Generated successfully. View the file at ${outputPath}`);
+        cb();
       });
 
 } catch (err) {
