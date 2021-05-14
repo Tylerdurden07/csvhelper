@@ -1,6 +1,6 @@
 {
   "name": "csvhelper",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "This is command line interface tool to perform some conversion operation given in a config file on any given csv file and will write the converted csv file to the given output location",
   "main": "bin/cli.js",
   "scripts": {
