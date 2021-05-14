@@ -45,9 +45,9 @@ csvhelper -s <sourceCSVpath> -c <configJSONfilePath> -o <outputFilePath>
 
 below is the total JSON config options, based on the operations concerned options should be provided to perform the transformation
 
-```json
+```javascript
 {
-    "operation": ""  
+    "operation": "",  
     // allowed operation values
     // formatter , filter, merge, formulaField
     "predicateOptions": {
