@@ -16,7 +16,7 @@ This is command line interface tool to perform some conversion operation given i
 CSVHelper uses a number of open source projects to work properly:
 
 - [create-file] - file system operations!
-- [csv-parser] - parsing imnput csv files 
+- [csv-parser] - parsing input csv files 
 - [csvtojson] - convert csv to json to perform transformation easily
 - [json-2-csv] - convert json back to csv
 - [moment] - perform manipulation on date values
@@ -45,7 +45,7 @@ csvhelper -s <sourceCSVpath> -c <configJSONfilePath> -o <outputFilePath>
 
 below is the total JSON config options, based on the operations concerned options should be provided to perform the transformation
 
-```sh
+```json
 {
     "operation": ""  
     // allowed operation values
@@ -84,7 +84,7 @@ below is the total JSON config options, based on the operations concerned option
 ## sample configs
 
 for formatter operation
-```sh
+```json
 {
     "operation" : "formatter",
     "formateOptions" : {
@@ -95,7 +95,7 @@ for formatter operation
 ```
 
 filter operation config
-```sh
+```json
 {
     "operation" : "filter",
     "predicateOptions" : [{
@@ -108,7 +108,7 @@ filter operation config
 ```
 
 Merge operation config
-```sh
+```json
 {
     "operation" : "merge",
     "mergeOptions": {
@@ -119,7 +119,7 @@ Merge operation config
 }
 ```
 Formula field config
-```sh
+```json
 {
     "operation" : "formulaField",
     "formulaFieldOptions": {

@@ -1,13 +1,13 @@
 {
   "name": "csvhelper",
-  "version": "1.0.3",
-  "description": "",
+  "version": "1.0.4",
+  "description": "This is command line interface tool to perform some conversion operation given in a config file on any given csv file and will write the converted csv file to the given output location",
   "main": "bin/cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["CsvHelper", "CSV transform", "csv convert", "csv"],
+  "author": "Gnana sekar Jesuraj <mailme.sekarj@gmail.com> ",
   "license": "MIT",
   "bin": {
     "csvhelper": "./bin/cli.js"
@@ -19,5 +19,10 @@
     "json-2-csv": "^3.11.0",
     "moment": "^2.29.1",
     "yargs": "^17.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tylerdurden07/csvhelper.git"
+  },
+  "homepage": "https://github.com/Tylerdurden07/csvhelper"
 }
